@@ -1,34 +1,42 @@
 package com.ism.services;
 
 import com.ism.entities.ArticleConfection;
+import com.ism.entities.Categorie;
+import com.ism.repositories.ITables;
 
 import java.util.ArrayList;
 
 public class ArticleConfectionServiceImpl implements ArticleConfectionService {
 
+    private ITables<ArticleConfection> articleConfectionRepository;
+
+    public ArticleConfectionServiceImpl(ITables<ArticleConfection> articleConfectionRepository) {
+        this.articleConfectionRepository = articleConfectionRepository;
+    }
+
     @Override
-    public int add(ArticleConfection data) {
-        return 0;
+    public int add(ArticleConfection articleConfection) {
+        return articleConfectionRepository.insert(articleConfection);
     }
 
     @Override
     public ArrayList<ArticleConfection> getAll() {
-        return null;
+        return articleConfectionRepository.findAll();
     }
 
     @Override
-    public int update(ArticleConfection data) {
-        return 0;
+    public int update(ArticleConfection articleConfection) {
+        return articleConfectionRepository.update(articleConfection);
     }
 
     @Override
     public ArticleConfection show(int id) {
-        return null;
+        return articleConfectionRepository.findByID(id);
     }
 
     @Override
     public int remove(int id) {
-        return 0;
+        return articleConfectionRepository.delete(id);
     }
 
     @Override

@@ -1,5 +1,8 @@
 package com.ism.entities;
 
+import lombok.Builder;
+
+
 public class Categorie extends AbstractEntity {
 
     //Constructeur

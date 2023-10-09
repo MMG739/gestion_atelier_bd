@@ -1,11 +1,12 @@
-package com.ism.repositories;
+package com.ism.repositories.list;
 
 import com.ism.entities.AbstractEntity;
+import com.ism.repositories.ITables;
 
 import java.util.ArrayList;
 
 //Table de base dont vont hériter les autres tables de la liste.
-public  class Table<T extends AbstractEntity> implements ITables<T>  {
+public  class Table<T extends AbstractEntity> implements ITables<T> {
 
     private  ArrayList<T> tables = new ArrayList<>();
 

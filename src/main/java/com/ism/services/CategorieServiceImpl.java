@@ -1,19 +1,11 @@
 package com.ism.services;
 
 import com.ism.entities.Categorie;
-import com.ism.repositories.bd.CategorieRepository;
 import com.ism.repositories.ITables;
-import com.ism.repositories.list.TableCategories;
 
 import java.util.ArrayList;
 
 public class CategorieServiceImpl implements CategorieService {
-
-    //Couplage fort
-
-    //private TableCategories categoriesRepository=new TableCategories();
-
-    //private CategorieRepository categoriesRepository=new CategorieRepository();
 
     //Couplage faible
     private ITables<Categorie> categoriesRepository;
@@ -21,10 +13,13 @@ public class CategorieServiceImpl implements CategorieService {
     public CategorieServiceImpl(ITables<Categorie> categoriesRepository) {
         this.categoriesRepository = categoriesRepository;
     }
+
+    /*
     //Injection de dépendance via le setter
     public void setCategoriesRepository(ITables<Categorie> categoriesRepository) {
         this.categoriesRepository = categoriesRepository;
     }
+     **/
 
     @Override
     public int add(Categorie categorie) {
@@ -56,10 +51,10 @@ public class CategorieServiceImpl implements CategorieService {
     @Override
     public int[] remove(int[] ids) {
         int[] idsNotDelete=new int[ids.length];
-        int nbre=0;
+        int n=0;
         for (int id = 0; id < ids.length; id++) {
             if (categoriesRepository.delete(id)==0) {
-                idsNotDelete[nbre++]=id;
+                idsNotDelete[n++]=id;
 
             }
         }

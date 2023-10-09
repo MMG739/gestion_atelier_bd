@@ -1,8 +1,12 @@
 package com.ism.entities;
 
 
+import lombok.*;
+
 import java.util.ArrayList;
 
+@Getter
+@Setter
 public class ArticleConfection extends AbstractEntity {
 
     //Attribut
@@ -12,10 +16,6 @@ public class ArticleConfection extends AbstractEntity {
     //Attributs Navigationnel
     //@ManyToOne
     Categorie categorie;
-
-    public Categorie getCategorie() {
-        return categorie;
-    }
 
     public void setCategorie(Categorie categorie) {
         this.categorie = categorie;
@@ -29,10 +29,6 @@ public class ArticleConfection extends AbstractEntity {
         unites.add(unite);
     }
 
-    public ArrayList<Unite> getUnites() {
-        return unites;
-    }
-
 
     //Constructeur
     public ArticleConfection() {
@@ -44,28 +40,12 @@ public class ArticleConfection extends AbstractEntity {
         this.prix = prix;
         this.qte = qte;
     }
-
-    // Getters
-
-
-    public double getPrix() {
-        return prix;
-    }
-
-    public int getQte() {
-        return qte;
-    }
-
-    //Setters
-
-
-    public void setPrix(double prix) {
+    public ArticleConfection(String libelle, double prix, int qte) {
+        super(libelle);
         this.prix = prix;
-    }
-
-    public void setQte(int qte) {
         this.qte = qte;
     }
+
 
     //To String
     @Override
