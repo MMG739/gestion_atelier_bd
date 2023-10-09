@@ -8,7 +8,7 @@ import com.ism.repositories.ITables;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class CategorieRepository extends Repository<Categorie>  {
+public class CategorieRepository extends MySQLRepository<Categorie>  {
 
 
     @Override

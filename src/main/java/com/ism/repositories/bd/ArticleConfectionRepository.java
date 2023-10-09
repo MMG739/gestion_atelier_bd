@@ -2,7 +2,6 @@ package com.ism.repositories.bd;
 
 import com.ism.entities.AbstractEntity;
 import com.ism.entities.ArticleConfection;
-import com.ism.entities.Categorie;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 
-public class ArticleConfectionRepository extends Repository<ArticleConfection>{
+public class ArticleConfectionRepository extends MySQLRepository<ArticleConfection> {
 
     @Override
     public int insert(AbstractEntity data) {

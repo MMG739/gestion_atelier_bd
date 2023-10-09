@@ -1,15 +1,12 @@
 package com.ism.repositories.bd;
 
 import com.ism.entities.AbstractEntity;
-import com.ism.entities.ArticleConfection;
-import com.ism.entities.Categorie;
 import com.ism.repositories.ITables;
 
 
 import java.sql.*;
-import java.util.ArrayList;
 
-public abstract   class Repository<T extends AbstractEntity> implements ITables {
+public abstract   class MySQLRepository<T extends AbstractEntity> implements ITables {
     protected Connection getConnection() throws SQLException, ClassNotFoundException {
             Class.forName("com.mysql.cj.jdbc.Driver");
             return DriverManager.getConnection("jdbc:mysql://localhost:3306/database", "root", "root");
