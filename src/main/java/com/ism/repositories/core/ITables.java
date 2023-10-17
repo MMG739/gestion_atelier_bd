@@ -1,4 +1,4 @@
-package com.ism.repositories;
+package com.ism.repositories.core;
 
 import com.ism.entities.AbstractEntity;
 

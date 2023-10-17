@@ -1,8 +1,7 @@
 package com.ism.services;
 
 import com.ism.entities.ArticleConfection;
-import com.ism.entities.Categorie;
-import com.ism.repositories.ITables;
+import com.ism.repositories.core.ITables;
 
 import java.util.ArrayList;
 

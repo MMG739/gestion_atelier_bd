@@ -1,8 +1,5 @@
 package com.ism.entities;
 
-import lombok.Builder;
-
-
 public class Unite extends AbstractEntity {
 
     //Constructeur

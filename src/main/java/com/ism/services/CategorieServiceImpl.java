@@ -1,21 +1,22 @@
 package com.ism.services;
 
 import com.ism.entities.Categorie;
-import com.ism.repositories.ITables;
+import com.ism.repositories.core.ITables;
 
 import java.util.ArrayList;
 
 public class CategorieServiceImpl implements CategorieService {
 
-    //Couplage faible
+    //?Couplage faible
     private ITables<Categorie> categoriesRepository;
-    //Injection de dépendance via le constructeur
+
+    //*Injection de dépendance via le constructeur
     public CategorieServiceImpl(ITables<Categorie> categoriesRepository) {
         this.categoriesRepository = categoriesRepository;
     }
 
     /*
-    //Injection de dépendance via le setter
+    *Injection de dépendance via le setter
     public void setCategoriesRepository(ITables<Categorie> categoriesRepository) {
         this.categoriesRepository = categoriesRepository;
     }

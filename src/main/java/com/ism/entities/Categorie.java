@@ -1,7 +1,5 @@
 package com.ism.entities;
 
-import lombok.Builder;
-
 
 public class Categorie extends AbstractEntity {
 
@@ -23,3 +21,4 @@ public class Categorie extends AbstractEntity {
         return "Categorie" + super.toString();
     }
 }
+

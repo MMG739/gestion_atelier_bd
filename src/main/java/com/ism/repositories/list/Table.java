@@ -1,7 +1,7 @@
 package com.ism.repositories.list;
 
 import com.ism.entities.AbstractEntity;
-import com.ism.repositories.ITables;
+import com.ism.repositories.core.ITables;
 
 import java.util.ArrayList;
 

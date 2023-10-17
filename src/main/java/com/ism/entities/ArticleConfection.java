@@ -34,27 +34,40 @@ public class ArticleConfection extends AbstractEntity {
     public ArticleConfection() {
         super();
     }
-
     public ArticleConfection(int id, String libelle, double prix, int qte) {
         super(id,libelle);
         this.prix = prix;
         this.qte = qte;
     }
-    public ArticleConfection(String libelle, double prix, int qte) {
+
+    public ArticleConfection(int id, String libelle, double prix, int qte,Categorie categorie) {
+        super(id,libelle);
+        this.prix = prix;
+        this.qte = qte;
+        this.categorie=categorie;
+    }
+    public ArticleConfection(String libelle, double prix, int qte,Categorie categorie) {
         super(libelle);
         this.prix = prix;
         this.qte = qte;
+        this.categorie=categorie;
     }
 
 
     //To String
     @Override
     public String toString() {
+        if(categorie!=null) return "ArticleConfection" +
+                super.toString() +
+                '{' + " prix=" + prix +
+                ", qte=" + qte +
+                '}' + '{' + "categorie=" + categorie.libelle + '}';
         return "ArticleConfection" +
                 super.toString() +
                 '{'+" prix=" + prix +
                 ", qte=" + qte +
                 '}';
+
     }
 }
 

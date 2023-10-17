@@ -1,33 +1,48 @@
 package com.ism;
 import com.ism.entities.ArticleConfection;
 import com.ism.entities.Categorie;
-import com.ism.repositories.ITables;
-import com.ism.repositories.bd.ArticleConfectionRepository;
+import com.ism.repositories.bd.ArticleConfRepository;
 import com.ism.repositories.bd.CategorieRepository;
-import com.ism.repositories.list.TableCategories;
+import com.ism.repositories.core.Database;
+import com.ism.repositories.core.ITables;
+import com.ism.repositories.bd.impl.ArticleConfectionRepositoryImpl;
+import com.ism.repositories.bd.impl.CategorieRepositoryImpl;
+import com.ism.repositories.core.MySQLImpl;
 import com.ism.services.ArticleConfectionServiceImpl;
-import com.ism.services.CategorieService;
 import com.ism.services.CategorieServiceImpl;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        ITables<Categorie> repository=new CategorieRepository();
-        ITables<ArticleConfection> repository1=new ArticleConfectionRepository();
+        //Dependence Mysql
+        Database database=new MySQLImpl();
+        //Repo
+        CategorieRepository repository=new CategorieRepositoryImpl(database);
         CategorieServiceImpl categorieServiceImpl=new CategorieServiceImpl(repository);
+
+        ArticleConfRepository repository1=new ArticleConfectionRepositoryImpl(database);
         ArticleConfectionServiceImpl articleConfectionServiceImpl=new ArticleConfectionServiceImpl(repository1);
        int choix;
        Scanner scanner=new Scanner(System.in);
        do{
            System.out.println("-------App---------");
+           System.out.println("-------Categorie---------");
            System.out.println("1-Ajouter une categorie");
-           System.out.println("2-Lister");
-           System.out.println("3-supprimer");
-           System.out.println("4-Modifier");
-           System.out.println("6-Ajouter un article");
+           System.out.println("2-Lister Categorie");
+           System.out.println("3-supprimer Categorie");
+           System.out.println("4-Modifier Categorie");
            System.out.println("5-Quitter");
+           /*
+           System.out.println("-------Article---------");
+           System.out.println("6-Ajouter un article");
+           System.out.println("7-Lister article");
+           System.out.println("8-Supprimer un article");
+           System.out.println("9-Modifier un article");
+           System.out.println("5-Quitter");
+
+            */
+
            choix= scanner.nextInt();
            scanner.nextLine();
 
@@ -56,7 +71,7 @@ public class App {
                        categorieServiceImpl.update(cat);
                    }
                    break;
-
+               /*
                case 6:
                    System.out.println("Entrez le libelle");
                    String lib=scanner.nextLine();
@@ -64,8 +79,19 @@ public class App {
                    int qte= scanner.nextInt();
                    System.out.println("Entrez le prix");
                    double prix= scanner.nextDouble();
-                   ArticleConfection articleConfection=new ArticleConfection(lib,prix,qte);
+                   System.out.println("Veuillez choisir une categorie");
+                   categorieServiceImpl.getAll().forEach(System.out::println);
+                   System.out.println("Entrez l'id");
+                   Categorie articleCat=categorieServiceImpl.show(scanner.nextInt());
+                   scanner.nextLine();
+                   ArticleConfection articleConfection=new ArticleConfection(lib,prix,qte,articleCat);
                    articleConfectionServiceImpl.add(articleConfection);
+                   break;
+               case 7:
+                   articleConfectionServiceImpl.getAll().forEach(System.out::println);
+                   break;
+
+                */
 
                default:
                    break;
